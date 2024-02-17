@@ -1,14 +1,11 @@
 from django.shortcuts import render
 
 # Create your views here.
-def index(request):
-    return render(request, "index.html")
-
 def category(request):
-    return render(request, "category.html")
+    return render(request, "recipe/category.html")
 
 def menu(request):
-    return render(request, "menu.html")
+    return render(request, "recipe/menu.html")
 
 def recipe(request):
-    return render(request, "recipe.html")
+    return render(request, "recipe/recipe.html")
