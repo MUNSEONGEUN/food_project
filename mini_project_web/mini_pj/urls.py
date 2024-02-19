@@ -15,14 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
-from recipe import views
+from django.urls import path, include
+from mini_pj import views
 
+app_name = "mini_pj"
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("admin/", admin.site.urls),
-    path("", views.index),
-    path("category/", views.category), # category_id값 int로 들어가야 함
-    path("category/menu/", views.menu), # menu_id값 int로 들어가야 함
-    path("category/menu/recipe/", views.recipe), # recipe_id값 int로 들어가야 함
+    path("", views.index, name = "index"),
+    path("users/", include("users.urls")),
+    path("recipe/", include("recipe.urls")),
 ]
